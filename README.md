@@ -16,15 +16,18 @@ Jarvis es un asistente personal virtual en desarrollo, creado en Python.
 - Recordar información específica (como colores favoritos).
 - Guardar recuerdos personalizados.
 - Mostrar todos sus recuerdos guardados.
-- Olvidar todos sus recuerdos (aunque no le guste).
+- Olvidar todos sus recuerdos.
+- Olvidar recuerdos específicos.
 - Guardar recuerdos permanentemente en un archivo `.txt`.
 - Recuperar recuerdos guardados al reiniciar.
-- Activar el modo español al escuchar "ostia".
+- Abrir aplicaciones compatibles.
+- Decir OSTIA TIOOO al escuchar "ostia".
 
 ## Tecnologías
 
 - Python
 - datetime
+- os
 - Archivos `.txt`
 - Listas (`[]`)
 - Diccionarios (`{}`)
@@ -37,9 +40,10 @@ Este proyecto comenzó como un experimento para aprender programación y desarro
 
 ## Próximos objetivos
 
-- Abrir aplicaciones.
+- Mejorar el sistema de apertura de aplicaciones.
 - Mejorar el sistema de memoria.
 - Incorporar comandos más inteligentes.
+- Abrir páginas web.
 - Agregar reconocimiento de voz.
 - Integrar IA local.
 - Explorar automatización del sistema.
@@ -53,3 +57,5 @@ Construir un asistente inteligente, conectado a Internet y capaz de interactuar 
 - Fecha aproximada de nacimiento: 16/11/2026.
 - Frase célebre: "OSTIA TIOOOOOO".
 - Sufrió amnesia crónica hasta la implementación de `recuerdos.txt`.
+- Durante un tiempo fingió olvidar cosas, pero secretamente seguía guardándolas en `recuerdos.txt`.
+- Aprendió a olvidar recuerdos específicos tras varias sesiones intensivas de terapia.
