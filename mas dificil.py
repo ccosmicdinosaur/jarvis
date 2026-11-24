@@ -1,10 +1,16 @@
 print("pequeño jarvis, ahora probando cositas mas dificiles ohsiohsi")
 
 from datetime import datetime
+import os
 
-recuerdos = []
 memoria = {}
 recuerdos = []
+
+apps = {
+    "calculadora": "calc",
+    "bloc": "notepad",
+    "paint": "mspaint",
+}
 
 with open("recuerdos.txt", "r") as archivo:
     for linea in archivo:
@@ -35,7 +41,6 @@ while True:
         print("Jarvis: lo recordaré :)")
 
     elif comando == "mostrar recuerdos":
-
         if len(recuerdos) == 0:
             print("ME BORRASTE LOS RECUERDOS, COMO VOY A RECORDAR ALGO??? :(")
 
@@ -80,9 +85,35 @@ while True:
     elif comando == "ostia":
         print("Jarvis: OSTIA TIOOOOOO")
 
+    elif comando.startswith("abrir "):
+
+        app = comando.replace("abrir ", "")
+
+        if app in apps:
+            os.system(f"start {apps[app]}")
+            print(f"Jarvis: abriendo {app}...")
+        else:
+            print("Jarvis: no conozco esa aplicación :(")
+
     elif comando == "borrar recuerdos":
         print("Jarvis: NOOOOO MIS RECUERDOSSS :(")
         recuerdos.clear()
+        open("recuerdos.txt", "w")
+    
+    elif comando.startswith("olvidar "):
+        recuerdo_a_borrar = comando.replace("olvidar ", "")
+
+        if recuerdo_a_borrar in recuerdos:
+            recuerdos.remove(recuerdo_a_borrar)
+
+            with open("recuerdos.txt", "w") as archivo:
+                for recuerdo in recuerdos:
+                    archivo.write(recuerdo + "\n")
+
+            print("Jarvis: okk, ya no me acuerdo de eso")
+        else:
+            print("Jarvis: no tengo ese recuerdo")
+
     elif comando == "que podes hacer":
         print("- holi → te saludo")
         print("- hora → muestro la hora")
@@ -93,5 +124,6 @@ while True:
         print("- olvidar todo → borra mis recuerdos :(")
         print("- ostia → OSTIA TIOOOOOO")
         print("- salir → cierra el programa")
+
     else:
         print("Jarvis: ehh?? ravioles :D")
