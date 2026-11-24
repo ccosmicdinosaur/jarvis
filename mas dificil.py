@@ -1,9 +1,14 @@
-print("pequeño jarvis, ahora probando cositas mas dificiles")
+print("pequeño jarvis, ahora probando cositas mas dificiles ohsiohsi")
 
 from datetime import datetime
 
 recuerdos = []
 memoria = {}
+recuerdos = []
+
+with open("recuerdos.txt", "r") as archivo:
+    for linea in archivo:
+        recuerdos.append(linea.strip())
 
 def obtener_hora():
     return datetime.now().strftime("%H:%M")
@@ -24,13 +29,22 @@ while True:
 
         recuerdos.append(recuerdo)
 
+        with open("recuerdos.txt", "a") as archivo:
+            archivo.write(recuerdo + "\n")
+
         print("Jarvis: lo recordaré :)")
 
     elif comando == "mostrar recuerdos":
-        print("Jarvis: estos son mis recuerdos")
 
-        for recuerdo in recuerdos:
-            print("-", recuerdo)
+        if len(recuerdos) == 0:
+            print("ME BORRASTE LOS RECUERDOS, COMO VOY A RECORDAR ALGO??? :(")
+
+        else:
+            print("Jarvis: estos son mis recuerdos")
+
+            for recuerdo in recuerdos:
+                print("-", recuerdo)
+
 
     elif comando == "que boludo":
         print("Jarvis: ey no me digas boludo, soy un pequeño bot :(")
@@ -61,10 +75,23 @@ while True:
         print("Jarvis: oh... bueno, no es un color, pero lo recordaré igual :)")
 
     elif comando == "edad":
-        print("Jarvis: ya no son mas 5 minutos... ahora tengo un dia de vida. que rapido pasa el tiempo...")
+        print("Jarvis:ya no son mas 5 minutos... ahora tengo un dia de vida. que rapido pasa el tiempo...")
 
     elif comando == "ostia":
         print("Jarvis: OSTIA TIOOOOOO")
 
+    elif comando == "borrar recuerdos":
+        print("Jarvis: NOOOOO MIS RECUERDOSSS :(")
+        recuerdos.clear()
+    elif comando == "que podes hacer":
+        print("- holi → te saludo")
+        print("- hora → muestro la hora")
+        print("- nombre → digo mi nombre")
+        print("- edad → digo mi edad")
+        print("- acordate que... → guardo recuerdos")
+        print("- mostrar recuerdos → muestro mis recuerdos")
+        print("- olvidar todo → borra mis recuerdos :(")
+        print("- ostia → OSTIA TIOOOOOO")
+        print("- salir → cierra el programa")
     else:
-        print("Jarvis: eh, gugugaga?")
+        print("Jarvis: ehh?? ravioles :D")
